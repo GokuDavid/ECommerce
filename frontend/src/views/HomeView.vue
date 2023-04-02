@@ -44,16 +44,19 @@ export default {
   },
   mounted(){
     this.getLatestProducts()
+    document.title='Home|Goku'
   },
   methods:{
-    getLatestProducts(){
-      axios.get('/api/v1/latest-products/')
+    async getLatestProducts(){
+      this.$store.commit('setIsLoading',true)
+      await axios.get('/api/v1/latest-products/')
       .then(response=>{
         this.latestProducts=response.data
       })
       .catch(error=>{
         console.log(error)
       })
+      this.$store.commit('setIsLoading',false)
     }
   }
 }
