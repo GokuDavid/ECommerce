@@ -6,7 +6,7 @@ from io import BytesIO
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField()#形成短网址
 
     class Meta:
         ordering = ('name',)
