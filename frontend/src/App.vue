@@ -3,7 +3,7 @@
     <nav class="navbar is-primary">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item"
-          ><Strong>ECommerce</Strong></router-link
+          ><Strong>星未来Mall</Strong></router-link
         >
         <a
           class="navbar-burger"
@@ -24,6 +24,7 @@
       >
         <div class="navbar-start">
           <div class="navbar-item">
+            <!-- //跳转到search页面 -->
             <form action="/search" method="get">
               <div class="field has-addons">
                 <div class="control">
@@ -75,6 +76,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -86,6 +89,12 @@ export default {
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
+    const token=this.$store.state.token
+    if (token){
+      axios.defaults.headers.common['Authorization']="Token"+token
+    }else {
+      axios.defaults.headers.common['Authorization']=""
+    }
   },
   mounted() {
     this.cart = this.$store.state.cart;

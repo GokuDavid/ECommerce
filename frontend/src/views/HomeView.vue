@@ -11,7 +11,6 @@
     <div class="column is-12">
       <h2 class="is-size-2 has-text-centered">Latest products</h2>
     </div>
-
     <ProductBox
       v-for="product in latestProducts"
       v-bind:key="product.id"
@@ -21,8 +20,8 @@
 </template>
 
 <script>
-import axios from "axios";
 import ProductBox from "@/components/ProductBox.vue";
+import axios from "axios";
 
 export default {
   name: "HomeView",
@@ -36,7 +35,7 @@ export default {
   },
   mounted() {
     this.getLatestProducts();
-    document.title = "Home|Goku";
+    document.title = "Home | Goku";
   },
   methods: {
     async getLatestProducts() {
