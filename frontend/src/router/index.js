@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import store from '../store'
 import Cart from '../views/Cart.vue'
 import Category from '../views/Category.vue'
+import Checkout from '../views/Checkout.vue'
 import HomeView from '../views/HomeView.vue'
 import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
@@ -47,6 +48,14 @@ const routes = [
     path: '/my-account',
     name: 'MyAccount',
     component:MyAccount,
+    meta:{
+      requireLogin:true
+    }
+  },
+  {
+    path: '/cart/checkout',
+    name: 'Checkout',
+    component:Checkout,
     meta:{
       requireLogin:true
     }
